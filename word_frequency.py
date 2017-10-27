@@ -8,7 +8,8 @@ with open('dorian.txt') as f:
     f.close
 
 def histogram(source_text):
-    split_text = re.split(' ', source_text)
+    clean_text = source_text.replace("\n", "").replace("\r", "")
+    split_text = re.split(' ', clean_text)
 
     histogram = {}
 
@@ -35,8 +36,8 @@ def frequency(word, histogram):
             frequency = histogram[word_]
 
     return frequency
-    print frequency
 
-his = histogram("one fish two fish red fish blue fish")
+his = histogram(original_text)
+# print(his)
 # unique_words(his)
-frequency("fish", his)
+frequency("sit", his)
