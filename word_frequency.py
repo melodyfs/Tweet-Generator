@@ -1,6 +1,7 @@
 import sys
 import re
 import pdb
+import time
 
 
 with open('dorian.txt') as f:
@@ -61,6 +62,35 @@ def histogram_lists(source_text):
 
     return histogram_lists
 
+def count_lists(source_text):
+    list_of_dict = histogram_dict(source_text)
+
+    unique_word = []
+    count_list = []
+
+    for word in list_of_dict:
+        # num = [x[1] for x in list_of_dict]
+            if list_of_dict[word] in count_list:
+                # count_list += list_of_dict
+            # list_of_dict[word]
+                print list_of_dict
+            else:
+                count_list.append({1: [word]})
+    # pdb.set_trace()
+
+
+    pass
+
+
+def sort_dict(source_text):
+    list_of_dict = histogram_dict(source_text)
+    # sort keys aiphabetically
+    sorted_dict = sorted(list_of_dict.items())
+
+
+    return sorted_dict
+
+
 
 def unique_words(histogram):
     count = 0
@@ -78,8 +108,12 @@ def frequency(word, histogram):
 
     return frequency
 
-his = histogram_lists("one fish two fish red fish blue fish")
+
+start_time = time.time()
+his = sort_dict("one fish two fish red fish blue fish")
+end_time = time.time() - start_time
 print his
+print end_time
 # his = histogram("one fish two fish red fish blue fish")
 # print(his)
 # unique_words(his)

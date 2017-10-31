@@ -1,5 +1,6 @@
 import random
 import sys
+import time
 
 
 def random_words(num):
@@ -17,9 +18,12 @@ def random_words(num):
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     params = sys.argv
     num = int(params[1])
     print random_words(num)
+    end_time = time.time() - start_time
+    print(float(end_time))
 
 
 # random_words()
