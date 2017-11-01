@@ -49,16 +49,16 @@ def histogram_lists(source_text):
     text_file = clean_text(source_text)
     histogram_lists = []
 
-    for text in text_file:
-        text_ = [x[0] for x in histogram_lists]
+    for word_ in text_file:
+        text_arr = [word[0] for word in histogram_lists]
 
-        if text in text_:
-            index = text_.index(text)
+        if word_ in text_arr:
+            index = text_arr.index(word_)
             inner_list = histogram_lists[index]
             inner_list[1] += 1
 
         else:
-            histogram_lists.append([text, 1])
+            histogram_lists.append([word_, 1])
 
     return histogram_lists
 
@@ -76,7 +76,7 @@ def count_lists(source_text):
                 print list_of_dict
             else:
                 count_list.append({1: [word]})
-    # pdb.set_trace()
+    pdb.set_trace()
 
 
     pass
@@ -109,8 +109,15 @@ def frequency(word, histogram):
     return frequency
 
 
+with open("histogram_entries", 'w') as h:
+    histogram_ = histogram_dict("one fish two fish red fish blue fish")
+    for key in histogram_:
+        h.write("%s %s\n" % (key, histogram_[key]))
+    h.close()
+
+
 start_time = time.time()
-his = sort_dict("one fish two fish red fish blue fish")
+his = count_lists("one fish two fish red fish blue fish")
 end_time = time.time() - start_time
 print his
 print end_time
