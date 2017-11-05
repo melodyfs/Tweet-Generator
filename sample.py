@@ -1,9 +1,12 @@
 import random
 import time
 from word_frequency import histogram_dict
+import codecs
 
-with open('dorian.txt') as f:
+
+with codecs.open('dorian.txt',encoding='utf-8', errors='ignore') as f:
     original_text = f.read()
+
 
 def get_probability(histogram):
     total = sum(histogram.values())
@@ -12,6 +15,7 @@ def get_probability(histogram):
     for word in histogram:
         probabilities[word] = float(histogram[word]) / float(total)
     return probabilities
+
 
 def sample(probabilities, histogram):
     random_num = random.random()
@@ -25,13 +29,13 @@ def sample(probabilities, histogram):
             return i
 
 
-start_time = time.time()
-his = histogram_dict(original_text)
+# start_time = time.time()
+# his = histogram_dict(original_text)
 # his = histogram_dict(original_text)
 # print(his)
-p = get_probability(his)
-s = sample(p, his)
-end_time = time.time() - start_time
+# p = get_probability(his)
+# s = sample(p, his)
+# end_time = time.time() - start_time
 # print his
-print("W: %s" % s)
-print end_time
+# print("W: %s" % s)
+# print(end_time)

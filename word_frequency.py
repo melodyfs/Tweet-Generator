@@ -2,9 +2,10 @@ import sys
 import re
 import pdb
 import time
+import codecs
 
 
-with open('dorian.txt') as f:
+with codecs.open('dorian.txt',encoding='utf-8', errors='ignore') as f:
     original_text = f.read()
 
 
@@ -73,7 +74,7 @@ def count_lists(source_text):
             if list_of_dict[word] in count_list:
                 # count_list += list_of_dict
             # list_of_dict[word]
-                print list_of_dict
+                print(list_of_dict)
             else:
                 count_list.append({1: [word]})
     # pdb.set_trace()
@@ -97,7 +98,7 @@ def unique_words(histogram):
 
     for word in histogram:
         count += 1
-    print count
+    print(count)
 
 def frequency(word, histogram):
     frequency = 0
