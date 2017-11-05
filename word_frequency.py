@@ -6,7 +6,7 @@ import time
 
 with open('dorian.txt') as f:
     original_text = f.read()
-    f.close
+
 
 def clean_text(source_text):
     clean_text = source_text.replace("\n", "").replace("\r", "")
@@ -76,7 +76,7 @@ def count_lists(source_text):
                 print list_of_dict
             else:
                 count_list.append({1: [word]})
-    pdb.set_trace()
+    # pdb.set_trace()
 
 
     pass
@@ -84,7 +84,7 @@ def count_lists(source_text):
 
 def sort_dict(source_text):
     list_of_dict = histogram_dict(source_text)
-    # sort keys aiphabetically
+    # sort keys alphabetically
     sorted_dict = sorted(list_of_dict.items())
 
 
@@ -116,11 +116,11 @@ with open("histogram_entries", 'w') as h:
     h.close()
 
 
-start_time = time.time()
-his = count_lists("one fish two fish red fish blue fish")
-end_time = time.time() - start_time
-print his
-print end_time
+# start_time = time.time()
+# his = histogram_dict(original_text)
+# end_time = time.time() - start_time
+# print his
+# print end_time
 # his = histogram("one fish two fish red fish blue fish")
 # print(his)
 # unique_words(his)
