@@ -5,6 +5,7 @@ import time
 import codecs
 
 
+
 with codecs.open('dorian.txt',encoding='utf-8', errors='ignore') as f:
     original_text = f.read()
 
