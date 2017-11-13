@@ -4,8 +4,8 @@ from word_frequency import histogram_dict
 import codecs
 
 
-with codecs.open('dorian.txt',encoding='utf-8', errors='ignore') as f:
-    original_text = f.read()
+# with codecs.open('dorian.txt',encoding='utf-8', errors='ignore') as f:
+#     original_text = f.read()
 
 
 def get_probability(histogram):
@@ -17,28 +17,29 @@ def get_probability(histogram):
     return probabilities
 
 
-def sample(probabilities, histogram):
+def sample(probabilities):
     random_num = random.random()
-    print("ran num: %s" % random_num)
+    # print("ran num: %s" % random_num)
 
     prob = 0
     for i in probabilities:
         prob += probabilities[i]
         if random_num < prob:
-            print("prob: %s" % probabilities[i])
+            # print("prob: %s" % probabilities[i])
             return i
 
 
-start_time = time.time()
-his = histogram_dict(original_text)
-his = histogram_dict(original_text)
-print(his)
-p = get_probability(his)
-s = sample(p, his)
-end_time = time.time() - start_time
-print his
-print("W: %s" % s)
-print(end_time)
+# start_time = time.time()
+# # his = histogram_dict("one fish two fish red fish blue fish")
+# his = histogram_dict("one fish two fish red fish blue fish")
+# print(his)
+# p = get_probability(his)
+# print(p)
+# s = sample(p, his)
+# end_time = time.time() - start_time
+# print his
+# print("W: %s" % s)
+# print(end_time)
 
 
 # 1. Key Features: Generate histogram of dict, get the token for type

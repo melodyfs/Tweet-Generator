@@ -71,28 +71,23 @@ def count_lists(source_text):
     count_list = []
 
     for word in list_of_dict:
-        # num = [x[1] for x in list_of_dict]
             if list_of_dict[word] in count_list:
-                # count_list += list_of_dict
-            # list_of_dict[word]
                 print(list_of_dict)
             else:
                 count_list.append({1: [word]})
-    # pdb.set_trace()
 
 
     pass
 
 
-def sort_dict(source_text):
-    list_of_dict = histogram_dict(source_text)
-    # sort keys alphabetically
-    sorted_dict = sorted(list_of_dict.items())
-
-
-    return sorted_dict
-
-
+# def sort_dict(source_text):
+#     list_of_dict = histogram_dict(source_text)
+#     # sort keys alphabetically
+#     sorted_dict = sorted(list_of_dict.items())
+#
+#
+#     return sorted_dict
+#
 
 def unique_words(histogram):
     count = 0
