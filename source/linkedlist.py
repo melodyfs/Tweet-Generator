@@ -132,6 +132,19 @@ class LinkedList(object):
         raise ValueError('Item not found: {}'.format(item))
 
 
+    def replace(self, item, new_item):
+        current = self.head
+        target = self.find(lambda i: i == item)
+
+        if target is not None:
+            while current is not None:
+                if current.data is target:
+                    current.data = new_item
+                    return current
+                current = current.next
+        raise ValueError('Item not found: {}'.format(item))
+
+
 def test_linked_list():
     ll = LinkedList()
     print('list: {}'.format(ll))
@@ -146,6 +159,16 @@ def test_linked_list():
     print('tail: {}'.format(ll.tail))
     print('length: {}'.format(ll.length()))
 
+    ll.replace('C', 'I')
+    print('replace list: {}'.format(ll))
+
+    ll.replace('A', 'M')
+    print('replace list: {}'.format(ll))
+
+    ll.replace('B', 'U')
+    print('replace list: {}'.format(ll))
+
+
     # Enable this after implementing delete method
     delete_implemented = False
     if delete_implemented:
@@ -158,6 +181,7 @@ def test_linked_list():
         print('head: {}'.format(ll.head))
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
+
 
 
 if __name__ == '__main__':
