@@ -144,6 +144,14 @@ class LinkedList(object):
                 current = current.next
         raise ValueError('Item not found: {}'.format(item))
 
+    def iterate_list(self):
+        data = []
+        current = self.head
+
+        while current is not None:
+            data.append(current.data)
+            current = current.next
+        return data
 
 def test_linked_list():
     ll = LinkedList()
@@ -168,6 +176,8 @@ def test_linked_list():
     ll.replace('B', 'U')
     print('replace list: {}'.format(ll))
 
+    iteration = ll.iterate_list()
+    print(iteration)
 
     # Enable this after implementing delete method
     delete_implemented = False
