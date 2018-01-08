@@ -20,25 +20,20 @@ def create_dictogram(word_string):
 
     return histogram
 
-def markov_chain_2nd_order(word_string):
+def markov_chain_nth_order(word_string):
     word_arr = word_string.split()
     histogram = {}
 
-    for index in range(len(word_arr) - 1):
-        previous_word = word_arr[0]
-        current_tuple = None
-        current_word = word_arr[index]
-        next_word = word_arr[index + 1]
+    for index in range(len(word_string) - nth_order):
+        tuple_ = tuple((text_array[i]) for i in range(index, index + nth_order))
+        next_word = word_arr[index + nth_order]
 
-        if previous_word is None:
-            current_tuple = current_word
-            histogram[current_tuple].add_count(next_word)
-        elif previous_word is not None and current_tuple is not None:
-            current_tuple = (previous_word, current_word)
-            histogram[current_tuple].add_count(next_word)
+        if current_tuple in dictogram_dictionary:
+            dictogram_dictionary[tuple_].add_count(next_word)
         else:
-            histogram[current_word] = Dictogram([next_word])
-    return histogram
+            dictogram_dictionary[tuple_] = Dictogram([next_word])
+
+    return(histogram)
 
 
 def sample(dictogram):
@@ -76,7 +71,7 @@ def generate_sentence(dictogram):
 def main():
     given_text = "one fish two fish red fish blue fish"
     # histogram = create_dictogram(given_text)
-    second_order = 
+    second_order =
     sentence = generate_sentence(histogram)
     print(sentence)
 
